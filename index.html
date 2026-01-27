@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Chill App | Reserva tu mesa en segundos - El Salvador</title>
+    <meta name="title" content="Chill App | Reserva tu mesa en segundos - El Salvador">
+    <meta name="description"
+        content="Chill App revoluciona las reservaciones de restaurantes en El Salvador. Reserva tu mesa en segundos, confirma con un depósito seguro y disfruta sin estrés. ¡Próximamente!">
+    <meta name="keywords"
+        content="reservaciones restaurantes, El Salvador, reservar mesa, app restaurantes, Chill App, reservas online, restaurantes San Salvador">
+    <meta name="author" content="Chill App">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://chillapp.sv/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chillapp.sv/">
+    <meta property="og:title" content="Chill App | Reserva tu mesa en segundos">
+    <meta property="og:description"
+        content="Revolucionamos las reservaciones de restaurantes en El Salvador. Sin llamadas, sin estrés. Solo momentos memorables.">
+    <meta property="og:image" content="https://chillapp.sv/og-image.jpg">
+    <meta property="og:locale" content="es_SV">
+    <meta property="og:site_name" content="Chill App">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://chillapp.sv/">
+    <meta name="twitter:title" content="Chill App | Reserva tu mesa en segundos">
+    <meta name="twitter:description"
+        content="Revolucionamos las reservaciones de restaurantes en El Salvador. Sin llamadas, sin estrés.">
+    <meta name="twitter:image" content="https://chillapp.sv/og-image.jpg">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000">
+    <meta name="msapplication-TileColor" content="#000000">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Chill App",
+        "description": "App de reservaciones de restaurantes en El Salvador. Reserva tu mesa en segundos.",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "iOS, Android",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "Chill App",
+            "url": "https://chillapp.sv"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "El Salvador"
+        }
+    }
+    </script>
+
+    <link rel="stylesheet" href="minified.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="navigation" id="navbar" role="navigation" aria-label="Navegación principal">
+            <a href="#" class="logo" aria-label="Chill App - Inicio">
+                <img class="logo" src="logo-chill.svg" alt="Logo Chill APP">
+            </a>
+            <ul class="nav-links" role="menubar">
+                <li role="none"><a href="#problema" role="menuitem">El Problema</a></li>
+                <li role="none"><a href="#solucion" role="menuitem">Nuestra Solución</a></li>
+                <li role="none"><a href="#beneficios" role="menuitem">Beneficios</a></li>
+                <li role="none"><a href="#restaurantes" role="menuitem">Para Restaurantes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-bg" aria-hidden="true"></div>
+
+            <span class="hero-tag" role="status">Próximamente en El Salvador</span>
+
+            <h1 id="hero-title">Reserva tu mesa.<br><em>Disfruta el momento.</em></h1>
+
+            <p class="hero-subtitle">
+                Chill revoluciona la forma en que reservas en tus restaurantes favoritos.
+                Sin llamadas, sin esperas. Solo momentos memorables.
+            </p>
+
+            <div class="countdown-wrapper" role="timer" aria-label="Cuenta regresiva para el lanzamiento">
+                <p class="countdown-label" id="countdown-label">Lanzamiento oficial</p>
+                <div class="countdown" id="countdown" aria-labelledby="countdown-label" aria-live="polite">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days" aria-label="Días restantes">00</span>
+                        <span class="countdown-unit" aria-hidden="true">Días</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours" aria-label="Horas restantes">00</span>
+                        <span class="countdown-unit" aria-hidden="true">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes" aria-label="Minutos restantes">00</span>
+                        <span class="countdown-unit" aria-hidden="true">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds" aria-label="Segundos restantes">00</span>
+                        <span class="countdown-unit" aria-hidden="true">Segundos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator" aria-hidden="true">
+                <span>Descubre más</span>
+                <div class="line"></div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section class="problem" id="problema" aria-labelledby="problem-title">
+            <div class="section-grid">
+                <div class="reveal">
+                    <span class="section-label">El Problema</span>
+                    <h2 id="problem-title">Salir a cenar no debería ser <em>estresante</em></h2>
+                    <p class="problem-text">
+                        En El Salvador, reservar una mesa sigue siendo una experiencia del siglo pasado.
+                        Llamadas que nadie contesta, mensajes ignorados, y la incertidumbre de si realmente
+                        tendrás tu mesa cuando llegues.
+                    </p>
+                </div>
+
+                <ul class="problem-list reveal" role="list" aria-label="Problemas comunes al reservar">
+                    <li>
+                        <span class="problem-icon" aria-hidden="true">📞</span>
+                        <div>
+                            <h3>Llamadas sin respuesta</h3>
+                            <p>El restaurante está ocupado atendiendo clientes. Tu llamada puede esperar... o perderse.
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="problem-icon" aria-hidden="true">😰</span>
+                        <div>
+                            <h3>Incertidumbre constante</h3>
+                            <p>¿Confirmaron tu reserva? ¿A qué hora exactamente? ¿Quedó registrada?</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="problem-icon" aria-hidden="true">⏰</span>
+                        <div>
+                            <h3>Tiempo desperdiciado</h3>
+                            <p>Esperando en línea, esperando respuesta, esperando mesa. Tu tiempo vale más.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="problem-icon" aria-hidden="true">💔</span>
+                        <div>
+                            <h3>Momentos arruinados</h3>
+                            <p>Esa cena especial que planeaste termina en frustración antes de empezar.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section class="solution" id="solucion" aria-labelledby="solution-title">
+            <div class="section-grid">
+                <div class="reveal">
+                    <span class="section-label">Nuestra Solución</span>
+                    <h2 id="solution-title">Chill: Donde cada reserva es un <em>momento de calma</em></h2>
+                    <p class="solution-text">
+                        Creamos Chill con una filosofía simple: tu tiempo libre debería sentirse libre.
+                        Reserva tu mesa en segundos, confirma con un depósito seguro, y llega sabiendo
+                        que todo está listo para ti.
+                    </p>
+
+                    <figure class="philosophy-box">
+                        <blockquote cite="https://chillapp.sv">
+                            La mejor experiencia gastronómica comienza antes de probar el primer bocado.
+                            Comienza cuando reservas sin esfuerzo.
+                        </blockquote>
+                    </figure>
+                </div>
+
+                <ol class="steps reveal" role="list" aria-label="Pasos para usar Chill">
+                    <li class="step">
+                        <span class="step-number" aria-hidden="true">1</span>
+                        <div class="step-content">
+                            <h3>Explora y elige</h3>
+                            <p>Descubre restaurantes, ve disponibilidad en tiempo real y encuentra tu lugar ideal.</p>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-number" aria-hidden="true">2</span>
+                        <div class="step-content">
+                            <h3>Reserva al instante</h3>
+                            <p>Selecciona fecha, hora y número de personas. Confirmación inmediata.</p>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-number" aria-hidden="true">3</span>
+                        <div class="step-content">
+                            <h3>Asegura tu mesa</h3>
+                            <p>Un pequeño depósito garantiza tu reserva. Se descuenta de tu cuenta final.</p>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-number" aria-hidden="true">4</span>
+                        <div class="step-content">
+                            <h3>Disfruta tranquilo</h3>
+                            <p>Llega, tu mesa está lista. Solo queda disfrutar el momento.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits" id="beneficios" aria-labelledby="benefits-title">
+            <div class="benefits-header reveal">
+                <span class="section-label">Beneficios</span>
+                <h2 id="benefits-title">Por qué Chill cambia <em>todo</em></h2>
+                <p class="benefits-subtitle">Diseñado para hacer tu vida más simple y tus experiencias más memorables.
+                </p>
+            </div>
+
+            <div class="benefits-grid" role="list" aria-label="Lista de beneficios">
+                <article class="benefit-card reveal" role="listitem">
+                    <div class="benefit-icon" aria-hidden="true">⚡</div>
+                    <h3>Reserva en segundos</h3>
+                    <p>Sin llamadas, sin esperas. Encuentra disponibilidad y confirma tu mesa al instante, 24/7.</p>
+                </article>
+                <article class="benefit-card reveal" role="listitem">
+                    <div class="benefit-icon" aria-hidden="true">🔒</div>
+                    <h3>Mesa garantizada</h3>
+                    <p>Tu depósito asegura tu lugar. Nunca más llegarás a encontrar tu mesa ocupada.</p>
+                </article>
+                <article class="benefit-card reveal" role="listitem">
+                    <div class="benefit-icon" aria-hidden="true">💳</div>
+                    <h3>Pago inteligente</h3>
+                    <p>El depósito se descuenta de tu cuenta. Pagas el resto directamente en el restaurante.</p>
+                </article>
+                <article class="benefit-card reveal" role="listitem">
+                    <div class="benefit-icon" aria-hidden="true">📱</div>
+                    <h3>Todo en tu móvil</h3>
+                    <p>Historial de reservas, restaurantes favoritos, y recordatorios. Todo en un solo lugar.</p>
+                </article>
+                <article class="benefit-card reveal" role="listitem">
+                    <div class="benefit-icon" aria-hidden="true">⭐</div>
+                    <h3>Descubre lugares</h3>
+                    <p>Explora nuevos restaurantes, lee reseñas genuinas y encuentra tu próximo lugar favorito.</p>
+                </article>
+                <article class="benefit-card reveal" role="listitem">
+                    <div class="benefit-icon" aria-hidden="true">🎁</div>
+                    <h3>Recompensas</h3>
+                    <p>Gana puntos con cada reserva. Desbloquea beneficios exclusivos y experiencias únicas.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- For Restaurants Section -->
+        <section class="restaurants" id="restaurantes" aria-labelledby="restaurants-title">
+            <div class="section-grid">
+                <div class="reveal">
+                    <span class="section-label">Para Restaurantes</span>
+                    <h2 id="restaurants-title">Únete a la revolución <em>gastronómica</em></h2>
+                    <p class="restaurants-text">
+                        Chill no solo beneficia a los comensales. Tu restaurante gana visibilidad,
+                        reduce no-shows, y optimiza la gestión de mesas. Sé parte de los primeros
+                        en transformar la industria en El Salvador.
+                    </p>
+
+                    <ul class="restaurant-benefits" role="list" aria-label="Beneficios para restaurantes">
+                        <li class="restaurant-benefit">
+                            <span class="check" aria-hidden="true">✓</span>
+                            <span>Reduce no-shows hasta 80%</span>
+                        </li>
+                        <li class="restaurant-benefit">
+                            <span class="check" aria-hidden="true">✓</span>
+                            <span>Panel de administración intuitivo</span>
+                        </li>
+                        <li class="restaurant-benefit">
+                            <span class="check" aria-hidden="true">✓</span>
+                            <span>Mayor visibilidad digital</span>
+                        </li>
+                        <li class="restaurant-benefit">
+                            <span class="check" aria-hidden="true">✓</span>
+                            <span>Gestión de mesas optimizada</span>
+                        </li>
+                        <li class="restaurant-benefit">
+                            <span class="check" aria-hidden="true">✓</span>
+                            <span>Reportes y analytics</span>
+                        </li>
+                        <li class="restaurant-benefit">
+                            <span class="check" aria-hidden="true">✓</span>
+                            <span>Soporte dedicado</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="reveal">
+                    <div class="register-form" id="registerForm">
+                        <div class="form-header">
+                            <h3 id="form-title">Registra tu restaurante</h3>
+                            <p>Sé de los primeros en unirte a Chill</p>
+                        </div>
+
+                        <form id="restaurantForm" aria-labelledby="form-title" novalidate>
+                            <div class="form-group">
+                                <label for="restaurant">Nombre del restaurante <span aria-hidden="true">*</span></label>
+                                <input type="text" id="restaurant" name="restaurant" placeholder="Ej: La Casa del Chef"
+                                    required aria-required="true" autocomplete="organization">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contact">Nombre de contacto <span aria-hidden="true">*</span></label>
+                                    <input type="text" id="contact" name="contact" placeholder="Tu nombre" required
+                                        aria-required="true" autocomplete="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="position">Cargo</label>
+                                    <input type="text" id="position" name="position" placeholder="Ej: Gerente"
+                                        autocomplete="organization-title">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Correo electrónico <span aria-hidden="true">*</span></label>
+                                    <input type="email" id="email" name="email" placeholder="correo@restaurante.com"
+                                        required aria-required="true" autocomplete="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Teléfono <span aria-hidden="true">*</span></label>
+                                    <input type="tel" id="phone" name="phone" placeholder="+503 0000-0000" required
+                                        aria-required="true" autocomplete="tel">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="type">Tipo de establecimiento <span aria-hidden="true">*</span></label>
+                                <select id="type" name="type" required aria-required="true">
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="restaurante">Restaurante</option>
+                                    <option value="cafeteria">Cafetería</option>
+                                    <option value="bar">Bar / Lounge</option>
+                                    <option value="comida-rapida">Comida rápida</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location">Ubicación / Zona</label>
+                                <input type="text" id="location" name="location"
+                                    placeholder="Ej: Zona Rosa, San Salvador" autocomplete="address-level2">
+                            </div>
+
+                            <button name="quiero ser parte" type="submit" class="submit-btn">Quiero ser parte de
+                                Chill</button>
+                        </form>
+
+                        <p class="form-note">Te contactaremos antes del lanzamiento con información exclusiva.</p>
+                    </div>
+
+                    <div class="success-message" id="successMessage" role="alert" aria-live="polite">
+                        <div class="icon" aria-hidden="true">✓</div>
+                        <h3>¡Registro exitoso!</h3>
+                        <p>Gracias por tu interés. Te contactaremos pronto con más información sobre Chill.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/50300000000?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Chill%20App"
+        class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <a href="#" class="footer-logo" aria-label="Chill App - Inicio">
+                <img class="logo-footer" src="logo-chill.svg" alt="Logo Chill Footer">
+            </a>
+            <p class="footer-text">© 2026 Chill App. Hecho con <span aria-label="amor">♥</span> en El Salvador.</p>
+            <nav class="footer-social" aria-label="Redes sociales">
+                <a href="#" aria-label="Síguenos en Instagram" title="Instagram">📷</a>
+                <a href="#" aria-label="Síguenos en Facebook" title="Facebook">📘</a>
+                <a href="#" aria-label="Contáctanos por WhatsApp" title="WhatsApp">💬</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer - Target: March 31, 2026
+        const launchDate = new Date('2026-03-31T00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<p style="color: var(--color-gold); font-size: 1.5rem;">¡Ya estamos en vivo!</p>';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+
+        function revealOnScroll() {
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Form submission
+        const form = document.getElementById('restaurantForm');
+        const formContainer = document.getElementById('registerForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Collect form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            // Here you would normally send data to your backend
+            console.log('Form submitted:', data);
+
+            // Show success message
+            formContainer.querySelector('form').style.display = 'none';
+            formContainer.querySelector('.form-header').style.display = 'none';
+            formContainer.querySelector('.form-note').style.display = 'none';
+            successMessage.classList.add('show');
+
+            // Optional: Send to a service like Formspree, Firebase, etc.
+            // fetch('your-endpoint', {
+            //     method: 'POST',
+            //     body: JSON.stringify(data),
+            //     headers: { 'Content-Type': 'application/json' }
+            // });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
