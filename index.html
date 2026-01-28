@@ -47,6 +47,15 @@
         href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts with display swap for better performance -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+        rel="stylesheet">
+
     <!-- Structured Data / JSON-LD -->
     <script type="application/ld+json">
     {
@@ -329,6 +338,7 @@
                                 <label for="restaurant">Nombre del restaurante <span aria-hidden="true">*</span></label>
                                 <input type="text" id="restaurant" name="restaurant" placeholder="Ej: La Casa del Chef"
                                     required aria-required="true" autocomplete="organization">
+                                <span class="error-message">Por favor ingresa el nombre del restaurante</span>
                             </div>
 
                             <div class="form-row">
@@ -336,6 +346,7 @@
                                     <label for="contact">Nombre de contacto <span aria-hidden="true">*</span></label>
                                     <input type="text" id="contact" name="contact" placeholder="Tu nombre" required
                                         aria-required="true" autocomplete="name">
+                                    <span class="error-message">Por favor ingresa tu nombre</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="position">Cargo</label>
@@ -349,11 +360,13 @@
                                     <label for="email">Correo electrónico <span aria-hidden="true">*</span></label>
                                     <input type="email" id="email" name="email" placeholder="correo@restaurante.com"
                                         required aria-required="true" autocomplete="email">
+                                    <span class="error-message">Por favor ingresa un correo válido</span>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Teléfono <span aria-hidden="true">*</span></label>
-                                    <input type="tel" id="phone" name="phone" placeholder="+503 0000-0000" required
+                                    <input type="tel" id="phone" name="phone" placeholder="+503 7000-0000" required
                                         aria-required="true" autocomplete="tel">
+                                    <span class="error-message">Por favor ingresa un teléfono válido (8 dígitos)</span>
                                 </div>
                             </div>
 
@@ -367,6 +380,7 @@
                                     <option value="comida-rapida">Comida rápida</option>
                                     <option value="otro">Otro</option>
                                 </select>
+                                <span class="error-message">Por favor selecciona el tipo de establecimiento</span>
                             </div>
 
                             <div class="form-group">
@@ -375,8 +389,10 @@
                                     placeholder="Ej: Zona Rosa, San Salvador" autocomplete="address-level2">
                             </div>
 
-                            <button name="quiero ser parte" type="submit" class="submit-btn">Quiero ser parte de
-                                Chill</button>
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <span class="spinner"></span>
+                                <span class="btn-text">Quiero ser parte de Chill</span>
+                            </button>
                         </form>
 
                         <p class="form-note">Te contactaremos antes del lanzamiento con información exclusiva.</p>
@@ -390,6 +406,7 @@
                 </div>
             </div>
         </section>
+    </main>
     </main>
 
     <!-- WhatsApp Floating Button -->
@@ -416,8 +433,30 @@
         </div>
     </footer>
 
-    <script>
-        // Countdown Timer - Target: March 31, 2026
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Firebase imports
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+        import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+        // ⚠️ IMPORTANTE: Reemplaza estos valores con tu configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDDHy6t7FcQg5KfehGS5Iizg97Kob4xlRo",
+            authDomain: "chillapp-1a2bf.firebaseapp.com",
+            projectId: "chillapp-1a2bf",
+            storageBucket: "chillapp-1a2bf.firebasestorage.app",
+            messagingSenderId: "273785549762",
+            appId: "1:273785549762:web:b66473d8c440527ce99c5b"
+        };
+
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // ==========================================
+        // COUNTDOWN TIMER
+        // ==========================================
         const launchDate = new Date('2026-04-13T00:00:00').getTime();
 
         function updateCountdown() {
@@ -442,7 +481,9 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // Navbar scroll effect
+        // ==========================================
+        // NAVBAR SCROLL EFFECT
+        // ==========================================
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
@@ -452,7 +493,9 @@
             }
         });
 
-        // Scroll reveal animation
+        // ==========================================
+        // SCROLL REVEAL ANIMATION
+        // ==========================================
         const reveals = document.querySelectorAll('.reveal');
 
         function revealOnScroll() {
@@ -468,38 +511,170 @@
         }
 
         window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Initial check
+        revealOnScroll();
 
-        // Form submission
+        // ==========================================
+        // FORM VALIDATION & FIREBASE SUBMISSION
+        // ==========================================
         const form = document.getElementById('restaurantForm');
         const formContainer = document.getElementById('registerForm');
         const successMessage = document.getElementById('successMessage');
+        const submitBtn = document.getElementById('submitBtn');
 
-        form.addEventListener('submit', function (e) {
+        // Validation patterns
+        const patterns = {
+            email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+            phone: /^[\d\s\-\+\(\)]{8,}$/,
+            name: /^.{2,}$/
+        };
+
+        // Validate individual field
+        function validateField(field) {
+            const formGroup = field.closest('.form-group');
+            const value = field.value.trim();
+            let isValid = true;
+
+            // Remove previous states
+            formGroup.classList.remove('error', 'success');
+
+            // Check if required and empty
+            if (field.hasAttribute('required') && !value) {
+                isValid = false;
+            }
+            // Validate email format
+            else if (field.type === 'email' && value && !patterns.email.test(value)) {
+                isValid = false;
+            }
+            // Validate phone format (at least 8 digits)
+            else if (field.type === 'tel' && value) {
+                const digitsOnly = value.replace(/\D/g, '');
+                if (digitsOnly.length < 8) {
+                    isValid = false;
+                }
+            }
+            // Validate name length
+            else if ((field.id === 'restaurant' || field.id === 'contact') && value && !patterns.name.test(value)) {
+                isValid = false;
+            }
+            // Validate select
+            else if (field.tagName === 'SELECT' && field.hasAttribute('required') && !value) {
+                isValid = false;
+            }
+
+            // Apply state
+            if (!isValid) {
+                formGroup.classList.add('error');
+            } else if (value) {
+                formGroup.classList.add('success');
+            }
+
+            return isValid;
+        }
+
+        // Validate all fields
+        function validateForm() {
+            const fields = form.querySelectorAll('input[required], select[required]');
+            let isFormValid = true;
+
+            fields.forEach(field => {
+                if (!validateField(field)) {
+                    isFormValid = false;
+                }
+            });
+
+            return isFormValid;
+        }
+
+        // Real-time validation on blur
+        form.querySelectorAll('input, select').forEach(field => {
+            field.addEventListener('blur', () => validateField(field));
+            field.addEventListener('input', () => {
+                const formGroup = field.closest('.form-group');
+                if (formGroup.classList.contains('error')) {
+                    validateField(field);
+                }
+            });
+        });
+
+        // Format phone number as user types
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+
+            // Format: +503 0000-0000
+            if (value.length > 0) {
+                if (value.startsWith('503')) {
+                    value = value.substring(3);
+                }
+                if (value.length > 4) {
+                    value = value.substring(0, 4) + '-' + value.substring(4, 8);
+                }
+                e.target.value = '+503 ' + value;
+            }
+        });
+
+        // Form submission
+        form.addEventListener('submit', async function (e) {
             e.preventDefault();
+
+            // Validate form
+            if (!validateForm()) {
+                // Focus first error field
+                const firstError = form.querySelector('.form-group.error input, .form-group.error select');
+                if (firstError) {
+                    firstError.focus();
+                }
+                return;
+            }
+
+            // Show loading state
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
 
             // Collect form data
             const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
+            const data = {
+                restaurantName: formData.get('restaurant'),
+                contactName: formData.get('contact'),
+                position: formData.get('position') || '',
+                email: formData.get('email').toLowerCase(),
+                phone: formData.get('phone'),
+                establishmentType: formData.get('type'),
+                location: formData.get('location') || '',
+                createdAt: serverTimestamp(),
+                status: 'pending',
+                source: 'landing_page'
+            };
 
-            // Here you would normally send data to your backend
-            console.log('Form submitted:', data);
+            try {
+                // Save to Firebase Firestore
+                const docRef = await addDoc(collection(db, 'restaurant_leads'), data);
+                console.log('Documento guardado con ID:', docRef.id);
 
-            // Show success message
-            formContainer.querySelector('form').style.display = 'none';
-            formContainer.querySelector('.form-header').style.display = 'none';
-            formContainer.querySelector('.form-note').style.display = 'none';
-            successMessage.classList.add('show');
+                // Show success message
+                formContainer.querySelector('form').style.display = 'none';
+                formContainer.querySelector('.form-header').style.display = 'none';
+                formContainer.querySelector('.form-note').style.display = 'none';
+                successMessage.classList.add('show');
 
-            // Optional: Send to a service like Formspree, Firebase, etc.
-            // fetch('your-endpoint', {
-            //     method: 'POST',
-            //     body: JSON.stringify(data),
-            //     headers: { 'Content-Type': 'application/json' }
-            // });
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            } catch (error) {
+                console.error('Error al guardar:', error);
+
+                // Show error to user
+                alert('Hubo un error al enviar tu registro. Por favor intenta de nuevo.');
+
+                // Reset button state
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+            }
         });
 
-        // Smooth scroll for nav links
+        // ==========================================
+        // SMOOTH SCROLL FOR NAV LINKS
+        // ==========================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
