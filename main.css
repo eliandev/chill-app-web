@@ -342,7 +342,7 @@ img.logo {
 /* Scroll indicator */
 .scroll-indicator {
     position: absolute;
-    bottom: 2rem;
+    bottom: -1rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -1036,9 +1036,12 @@ footer {
         display: none;
     }
 
+    .navigation {
+        justify-content: center;
+    }
+
     .hero {
         padding: 5rem 1.25rem 3rem;
-        min-height: auto;
     }
 
     .hero h1 {
