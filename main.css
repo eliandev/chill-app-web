@@ -4,9 +4,9 @@
     --color-charcoal: #000000;
     --color-soft-black: #111111;
     --color-gold: #E6E6E6;
-    --color-gold-light: #F4E4BA;
+    --color-gold-light: #dddddd;
     --color-gold-dark: #646464;
-    --color-sage: #8B9A7D;
+    --color-sage: #757773;
     --color-text-muted: #999999;
     --color-focus: #E6E6E6;
 
@@ -989,11 +989,6 @@ footer {
     color: var(--color-cream);
     text-decoration: none;
     transition: all 0.3s ease;
-}
-
-.footer-social a:hover {
-    background: var(--color-gold);
-    color: var(--color-charcoal);
 }
 
 /* Animations */
