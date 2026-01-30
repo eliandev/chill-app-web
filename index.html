@@ -93,6 +93,7 @@
             </a>
             <ul class="nav-links" role="menubar">
                 <li role="none"><a href="#problema" role="menuitem">El Problema</a></li>
+                <li role="none"><a href="#waitlist" role="menuitem">La lista Chill</a></li>
                 <li role="none"><a href="#solucion" role="menuitem">Nuestra Solución</a></li>
                 <li role="none"><a href="#beneficios" role="menuitem">Beneficios</a></li>
                 <li role="none"><a href="#restaurantes" role="menuitem">Para Restaurantes</a></li>
@@ -195,6 +196,48 @@
                         </div>
                     </li>
                 </ul>
+            </div>
+        </section>
+
+        <!-- User Waitlist Section -->
+        <section class="user-waitlist" id="waitlist" aria-labelledby="waitlist-title">
+            <div class="waitlist-content reveal">
+                <span class="section-label">Cuéntanos</span>
+                <h2 id="waitlist-title">¿A cuál restaurante escribirías… <em>si te respondieran a tiempo?</em></h2>
+
+                <form id="userWaitlistForm" class="waitlist-form" novalidate>
+                    <!-- Step 1: Restaurant Answer -->
+                    <div class="form-step" id="step1">
+                        <div class="form-group">
+                            <textarea id="restaurantAnswer" name="restaurant"
+                                placeholder="Escribe el nombre del restaurante..." rows="2" required></textarea>
+                        </div>
+                        <button type="button" class="waitlist-btn" id="nextStepBtn">
+                            Continuar
+                        </button>
+                    </div>
+
+                    <!-- Step 2: Email -->
+                    <div class="form-step hidden" id="step2">
+                        <p class="step2-text">¡Buena elección! Déjanos tu correo y te avisamos cuando puedas reservar
+                            ahí.</p>
+                        <div class="form-group">
+                            <input type="email" id="userEmail" name="email" placeholder="tu@correo.com" required>
+                            <span class="error-message">Ingresa un correo válido</span>
+                        </div>
+                        <button type="submit" class="waitlist-btn" id="waitlistBtn">
+                            <span class="spinner"></span>
+                            <span class="btn-text">Notifícame</span>
+                        </button>
+                    </div>
+                </form>
+
+                <p class="waitlist-note" id="waitlistNote">Sin spam. Solo novedades importantes.</p>
+
+                <div class="waitlist-success" id="waitlistSuccess" role="alert">
+                    <span class="success-icon">✓</span>
+                    <span>¡Listo! Te avisaremos cuando lancemos.</span>
+                </div>
             </div>
         </section>
 
@@ -409,7 +452,6 @@
                 </div>
             </div>
         </section>
-    </main>
     </main>
 
     <!-- WhatsApp Floating Button -->
@@ -725,6 +767,69 @@
                     });
                 }
             });
+        });
+
+        // ==========================================
+        // USER WAITLIST FORM (2-step)
+        // ==========================================
+        const userForm = document.getElementById('userWaitlistForm');
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+        const nextStepBtn = document.getElementById('nextStepBtn');
+        const waitlistBtn = document.getElementById('waitlistBtn');
+        const waitlistSuccess = document.getElementById('waitlistSuccess');
+        const waitlistNote = document.getElementById('waitlistNote');
+        const restaurantAnswer = document.getElementById('restaurantAnswer');
+        const userEmail = document.getElementById('userEmail');
+
+        // Step 1 → Step 2
+        nextStepBtn.addEventListener('click', () => {
+            const answer = restaurantAnswer.value.trim();
+
+            if (!answer || answer.length < 2) {
+                restaurantAnswer.focus();
+                return;
+            }
+
+            step1.classList.add('hidden');
+            step2.classList.remove('hidden');
+            userEmail.focus();
+        });
+
+        // Submit
+        userForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = userEmail.value.trim();
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (!email || !emailPattern.test(email)) {
+                userEmail.closest('.form-group').classList.add('error');
+                return;
+            }
+
+            userEmail.closest('.form-group').classList.remove('error');
+            waitlistBtn.classList.add('loading');
+            waitlistBtn.disabled = true;
+
+            try {
+                await addDoc(collection(db, 'user_waitlist'), {
+                    restaurantSuggestion: restaurantAnswer.value.trim(),
+                    email: email.toLowerCase(),
+                    createdAt: serverTimestamp(),
+                    source: 'landing_page'
+                });
+
+                step2.classList.add('hidden');
+                waitlistNote.style.display = 'none';
+                waitlistSuccess.classList.add('show');
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al registrarte. Intenta de nuevo.');
+                waitlistBtn.classList.remove('loading');
+                waitlistBtn.disabled = false;
+            }
         });
     </script>
 </body>
